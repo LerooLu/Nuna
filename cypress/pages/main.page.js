@@ -41,11 +41,11 @@ class MainPage {
   typeHiVirtualKeyboard(){
     this.selectors.selectInputToolBtn().click()
     this.selectors.inputTool().contains("US International").click()
-    cy.get('[id="K16"]').first().click()
-    cy.get('[id="K72"]').click()
-    cy.get('[id="K73"]').click()
-    cy.get('[id="K16"]').first().click()
-    cy.get('[id="K49"]').click()
+    cy.get('#K16').first().click()
+    cy.get('#K72').click()
+    cy.get('#K73').click()
+    cy.get('#K16').first().click()
+    cy.get('#K49').click()
   }
 }
 

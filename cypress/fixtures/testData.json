@@ -2,5 +2,6 @@
 "sourseLang" : "German",
 "translateLang" : "Spanish",
 "text" : "Montag",
-"result" : "Lunes"
+"result" : "Lunes",
+"keyboardWord": "bienVenidos"
 }

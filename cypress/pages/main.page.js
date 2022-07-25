@@ -38,16 +38,25 @@ class MainPage {
     this.selectors.inputField().clear()
   }
 
-  typeHiVirtualKeyboard(){
+  typeVirtualKeyboard(word) {
     this.selectors.selectInputToolBtn().click()
     this.selectors.inputTool().contains("US International").click()
-    cy.get('#K16').first().click()
-    cy.get('#K72').click()
-    cy.get('#K73').click()
-    cy.get('#K16').first().click()
-    cy.get('#K49').click()
-  }
+    const wordArr = word.split('')
+    //choose selector for all keyboard
+    cy.get('#kbd').then((keyBoard) => {
+      //for each symbol check visibility
+      for (let i = 0; i < wordArr.length; i++) {
+        if (keyBoard.find(`.vk-cap:contains("${wordArr[i]}")`).length > 0) {
+          // if yes - press on button
+          cy.get('.vk-btn').contains(wordArr[i]).click()
+        } else {
+          //if not - press Shift and press on button
+          cy.get('#K16').first().click()
+          cy.get('.vk-btn').contains(wordArr[i]).click()
+        }
+      }
+    })
+    }
 }
-
 
 export default new MainPage()

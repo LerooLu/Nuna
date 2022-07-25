@@ -23,11 +23,10 @@ describe('Main page tests', function () {
       .should('have.text', this.testData.text)
   })
 
-  it('Chech virtual keyboard using', ()=>{
+  it('virtualKeyboard', ()=>{
     mainPage.clearInputField()
-    mainPage.typeHiVirtualKeyboard()
-    //check that input text is correct
-    mainPage.selectors.inputText()
-      .should('have.text', "Hi!")
+    mainPage.typeVirtualKeyboard(this.testData.keyboardWord)
+      mainPage.selectors.inputText()
+        .should('have.text', this.testData.keyboardWord)
   })
 });
